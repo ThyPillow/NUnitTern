@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeFixes;
 
-namespace AutoRefactoringWithRoslyn
+namespace NUnitTern
 {
     public class CustomDiagnosticProvider : FixAllContext.DiagnosticProvider
     {

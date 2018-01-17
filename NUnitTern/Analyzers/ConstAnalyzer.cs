@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace AutoRefactoringWithRoslyn
+namespace NUnitTern.Analyzers
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class ConstAnalyzer : DiagnosticAnalyzer
