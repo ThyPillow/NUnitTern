@@ -29,19 +29,21 @@ namespace NUnitTern
                 }
                 Console.WriteLine($"Starting migration of {fileInfo.Name}");
 
-                var workspace = MSBuildWorkspace.Create();
-                var current = 1;
-                var breakingChanges = BreakingChangeRepository.BreakingChanges;
-
-                foreach (var breakingChange in breakingChanges)
+                using (var workspace = MSBuildWorkspace.Create())
                 {
-                    Console.WriteLine($"{current++}/{breakingChanges.Count} - {breakingChange.EquivalenceKey} - Starting migration");
-                    new Tern(workspace, projectFilePath).Migrate(breakingChange);
+                    var current = 1;
+                    var breakingChanges = BreakingChangeRepository.BreakingChanges;
+
+                    foreach (var breakingChange in breakingChanges)
+                    {
+                        Console.WriteLine($"{current++}/{breakingChanges.Count} - {breakingChange.EquivalenceKey} - Starting migration");
+                        new Tern(workspace, projectFilePath).Migrate(breakingChange);
+                    }
                 }
 
                 Console.WriteLine();
                 Console.WriteLine("End of diagnostics and fixes. Enter to exit");
-                Console.ReadLine();
+                //Console.ReadLine();
             }
         }
     }
